@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angulat-task1';
+  task = '';
+  toDoItem : any=['Task 1','Task 2','Task 3','Task 4','Task 5','Task 6','Task 7','Task 8','Task 9','Task 10','Task 11','Task 12','Task 13','Task 14','Task 15','Task 16','Task 17','Task 18','Task 19','Task 20','Task 21','Task 22','Task 23'];
+
+  addToList(){
+      this.toDoItem.push(this.task);
+      this.task = '';
+  }
+
+  removeFromList({item}: { item: any }) {
+    var index = this.toDoItem.indexOf(item);
+
+    this.toDoItem.splice(index, 1)
+  }
+
+
+
+
 }
