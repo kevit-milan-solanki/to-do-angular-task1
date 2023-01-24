@@ -5,28 +5,41 @@
   <div class="row input-row">
     <div class="col-xs-12">
       <div class="input-group mb-3 input-fild">
-        <input type="text" class="form-control" placeholder="Add New Task" aria-label="Recipient's username"
-               aria-describedby="button-addon2" [(ngModel)]="task">
+        <input type="text"
+               class="form-control"
+               placeholder="Add New Task"
+               aria-label="Recipient's username"
+               aria-describedby="button-addon2"
+               (keyup.enter)="onEnter()"
+               [(ngModel)]="task">
         <button
           class="btn btn-outline-secondary"
           type="button" id="button-addon2"
           (click)="addToList()"
-          [disabled]="task == ''" style="cursor: pointer">Button
+          style="cursor: pointer">Button
         </button>
       </div>
     </div>
   </div>
 </div>
 
-
 <div class="container">
-
-  <div class="container workspace" #target)>
-    <ul class="list-group">
-      <li class="list-group-item items"
-          style="cursor: pointer"
+  <div class="container workspace"
+       >
+    <ul class="list-group ">
+      <li class="list-group-item items listItem"
           *ngFor="let item of toDoItem"
-          (click)="removeFromList({item : item})">{{item}}
+          hover-class="hover"
+          >{{item}}
+        <div class="iconButtons"
+           >
+          <i class="bi bi-pen editBtn"
+             style="cursor: pointer"
+             (click)="editListItem({item:item})"></i>
+          <i class="bi bi-trash3 deletBtn"
+             style="cursor: pointer"
+             (click)="removeFromList({item : item})"></i>
+        </div>
       </li>
     </ul>
   </div>

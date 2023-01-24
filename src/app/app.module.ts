@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
+import {MatIconModule} from "@angular/material/icon";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HoverList} from "./dirctives/hover.directive";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HoverList
+
+
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
